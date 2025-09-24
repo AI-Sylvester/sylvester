@@ -144,7 +144,8 @@
 /* Mobile menu */
 .menu-toggle {
   display: none;
-  color: #ffffff; /* white toggle icon */
+  background: rgba(8, 7, 7, 0.08);
+  color: #fffdfd; /* white toggle icon */
   font-size: 22px;
   cursor: pointer;
 }
@@ -155,7 +156,7 @@
     position: absolute;
     top: 72px;
     right: 14px;
-    background: var(--glass-2);
+    background: #000000; /* solid black background */
     padding: 12px;
     border-radius: 12px;
     flex-direction: column;
