@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 import "./Contact.css";
-import CV from "../assets/tik.pdf";
+import CV from "../assets/resume.pdf";
 
 const Contact = () => {
   const form = useRef();
