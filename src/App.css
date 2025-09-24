@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+/* Full-page fixed background, scrollable content */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.App-logo {
-  height: 40vmin;
+/* Single pseudo-element handles all slides */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: calc(100% - (-280px));
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.4);
+  animation: slideshow 32s infinite;
+}
+
+/* Fake-random fade sequence across 4 images */
+@keyframes slideshow {
+  0%, 15%   { background-image: url('./assets/background4.png'); opacity: 1; }
+  20%, 40%  { background-image: url('./assets/background1.png'); opacity: 1; }
+  45%, 60%  { background-image: url('./assets/bg3.png'); opacity: 1; }
+    65%, 80%  { background-image: url('./assets/background.png'); opacity: 1; }
+  85%, 100%     { background-image: url('./assets/bg1.png'); opacity: 1; }
+}
+
+/* Sparks container */
+.sparks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 0; /* above background but below content */
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Individual spark */
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ff9c00 0%, #ff0000 70%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spark-fly linear infinite;
+  filter: drop-shadow(0 0 6px #ff6600);
+}
+
+/* Spark animation */
+@keyframes spark-fly {
+  0% {
+    transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(var(--start-x, 0) + var(--dx, 50px)), calc(var(--start-y, 0) - var(--dy, 100px))) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(calc(var(--start-x, 0) + var(--dx, 100px)), calc(var(--start-y, 0) - var(--dy, 200px))) scale(0);
+    opacity: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Main container scrolls normally */
+.main-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 40px;
+  z-index: 1;
+}
+/* Footer adjustments */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 8px 12px;  /* smaller height */
+  background: transparent;  /* fully transparent */
+  color: var(--text);
+  font-size: 0.85rem; /* slightly smaller text */
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* -----/* Mobile fix for main-container alignment */
+@media (max-width: 900px) {
+  .main-container {
+    max-width: 92%;
+    margin: 0 auto;      /* keep centered */
+    padding: 12px;       /* even padding */
+    text-align: center;  
+    gap: 20px;
+    box-sizing: border-box; /* prevent padding from shifting layout */
   }
-  to {
-    transform: rotate(360deg);
+
+  .main-container * {
+    margin-left: 0 !important;  /* remove unwanted left margins */
+    padding-left: 0 !important; /* reset left padding if any */
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    max-width: 95%;
+    padding: 10px;
+    gap: 15px;
   }
 }

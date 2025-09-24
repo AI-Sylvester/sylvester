@@ -1,0 +1,134 @@
+/* Projects.css */
+:root {
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.7);
+  --accent-color: #d3ff0f;
+  --accent-gradient: linear-gradient(90deg,#6c63ff,#00c2ff);
+}
+
+/* Section layout */
+.projects {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  padding: 100px 40px;
+  gap: 40px;
+}
+
+/* Left: Heading 70% */
+.projects-left {
+  flex: 0 0 70%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.projects-left h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Right: Project cards 30% */
+.projects-right {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+  cursor: default;
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+
+/* Card content */
+.project-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.project-content p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.project-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.project-content a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .projects {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px 80px; /* add extra bottom padding to avoid clipping */
+    min-height: auto; /* allow height to expand naturally */
+  }
+
+  .projects-left,
+  .projects-right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .projects-left {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .projects-left h2 {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .projects-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+}

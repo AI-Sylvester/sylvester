@@ -1,0 +1,257 @@
+:root {
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --text: #e4e4e4;
+  --muted: rgba(255, 255, 255, 0.7);
+  --accent-color: #cffa10;
+  --accent-gradient: linear-gradient(90deg,#e1ff38,#bcc90d);
+}
+
+/* Section layout */
+.education {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  padding: 100px 40px;
+  gap: 40px;
+}
+
+.education-left {
+  flex: 0 0 70%;
+  display: flex;
+  flex-direction: column; /* stack heading + skills vertically */
+  align-items: flex-start; /* left-align everything */
+  justify-content: flex-start;
+  gap: 40px; /* spacing between heading and skills */
+}
+
+.education-left h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text; /* Safari/Chrome */
+  background-clip: text;         /* Standard property for other browsers */
+  -webkit-text-fill-color: transparent; /* Safari/Chrome */
+  color: transparent;            /* Fallback */
+}
+
+
+/* Right: Timeline cards 30% */
+.education-right {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Timeline card */
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+  cursor: default;
+}
+
+/* Hover effect */
+.timeline-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+
+/* Timeline label */
+.timeline-item span {
+  font-weight: 600;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Timeline content */
+.timeline-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.timeline-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* ---------- Mobile Responsive Enhancements ---------- */
+@media (max-width: 900px) {
+  /* Education Section */
+  .education {
+    flex-direction: column;
+    gap: 25px;                  /* balanced spacing */
+    align-items: center;
+    padding: 40px 20px 60px;    /* extra bottom padding for scroll */
+  }
+
+  /* Left: Heading + Skills */
+  .education-left {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .education-left h2 {
+    font-size: 2.2rem;           /* smaller for mobile */
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+
+  /* Right: Timeline cards */
+  .education-right {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
+
+  .timeline-item {
+    padding: 14px 16px;           /* compact padding */
+    border-radius: 12px;
+  }
+
+  .timeline-item span {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Skills Section */
+  .skills {
+    margin-top: 30px;
+    width: 100%;
+    align-items: center;          /* center content on mobile */
+  }
+
+  .skills h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .skills-list {
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;             /* prevent full-width bars on small screens */
+  }
+
+  .skill {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .skill span:first-child {
+    width: 65px;                  /* smaller label */
+    font-size: 0.85rem;
+  }
+
+  .skill-bar {
+    flex: 1;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  .skill-level {
+    border-radius: 5px;
+  }
+
+  .skill-percent {
+    width: 35px;
+    font-size: 0.8rem;
+  }
+}
+/* Skills section */
+.skills {
+  margin-top: 50px; /* space below heading */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align everything */
+}
+
+.skills h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Skill list spacing */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* reduce gap slightly */
+  width: 100%;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.skill span:first-child {
+  width: 80px; /* name width */
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Reduce skill bar width */
+.skill-bar {
+  flex: 0 0 180px; /* fixed width */
+  height: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.skill-percent {
+  width: 40px;
+  text-align: right;
+  font-weight: 500;
+  color: var(--muted);
+}
+

@@ -1,0 +1,184 @@
+:root {
+  --home-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --home-text: #ffffff;
+  --home-heading: #ffffff;
+  --home-accent: linear-gradient(90deg, #6c63ff, #00c2ff);
+}
+
+/* Home Section */
+.home-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 40px;
+  font-family: var(--home-font);
+  color: var(--home-text);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: none;
+}
+
+/* Hero Layout */
+.home-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  text-align: left;
+  animation: home-fadeInUp 1.5s ease forwards;
+}
+
+/* Intro Content */
+.home-intro {
+  flex: 1;
+  max-width: 600px;
+}
+
+.home-intro h1 span {
+  background: var(--home-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.home-intro h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 12px 0;
+  color: var(--home-text);
+  letter-spacing: 0.5px;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: home-fadeInUp 1.8s ease forwards 0.5s;
+}
+
+.home-intro p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--home-text);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: home-fadeInUp 2s ease forwards 1s;
+}
+
+/* CTA Button */
+.home-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--home-accent);
+  color: #fff;
+  font-family: var(--home-font);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: home-fadeInUp 2.2s ease forwards 1.3s;
+}
+
+.home-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(108, 99, 255, 0.5);
+}
+
+/* Animations */
+@keyframes home-fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile View */
+@media (max-width: 900px) {
+  .home-hero {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* top 50% empty, bottom 50% content */
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* Empty top row */
+  .home-hero::before {
+    content: "";
+    display: block;
+  }
+
+  /* Intro in bottom half */
+  .home-intro {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center horizontally */
+    padding: 0 1px;
+  }
+
+  .home-intro h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 2px;
+  }
+
+  .home-intro h2 {
+    font-size: 1.2rem;
+    margin: 0 0 1px;
+  }
+
+  .home-intro p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 16px;
+  }
+
+.home-btn {
+  display: inline-block;               /* behave like text but allow pseudo-elements */
+  position: relative;                  /* for underline animation */
+  font-weight: 600;
+  color: var(--home-accent);           /* accent color for text */
+  font-family: var(--home-font);
+  background: transparent;             /* transparent background */
+  border: none;                        /* no border */
+  padding: 0;                          /* remove extra padding */
+  cursor: pointer;                     /* pointer on hover */
+  text-decoration: none;               /* remove default underline */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add animated underline using pseudo-element */
+.home-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;                        /* space below text */
+  width: 100%;
+  height: 2px;                         /* thickness of underline */
+  background: var(--home-accent);      /* underline color */
+  transform: scaleX(0);                /* start hidden */
+  transform-origin: right;             /* animate from right to left */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.home-btn:hover {
+  transform: translateY(-2px);         /* subtle lift */
+  color: #ffffff;                       /* optional text color on hover */
+}
+
+.home-btn:hover::after {
+  transform: scaleX(1);                /* show underline */
+  transform-origin: left;              /* animate from left to right */
+}
+  /* Optional: hide profile image on mobile */
+  .home-cover {
+    display: none;
+  }
+}

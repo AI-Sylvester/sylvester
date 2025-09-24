@@ -1,0 +1,208 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(11,15,30,0.6), rgba(11,15,30,0.35));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  z-index: 60;
+}
+
+/* Logo text */
+/* Logo text - enhanced */
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  text-transform: uppercase;
+  
+  /* Gradient text */
+  background: linear-gradient(90deg, #6c63ff, #00c2ff);
+  -webkit-background-clip: text; /* Chrome, Safari */
+  background-clip: text;          /* Standard property for other browsers */
+  -webkit-text-fill-color: transparent; /* Chrome, Safari */
+  color: transparent;             /* fallback color */
+  
+  transition: all 0.3s ease;
+}
+/* Optional: subtle shadow for depth */
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #6c63ff, #00c2ff);
+  border-radius: 4px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+/* Hover animation */
+.logo:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.logo:hover::after {
+  opacity: 1;
+  height: 4px;
+}
+
+/* Small square before logo */
+.logo::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6c63ff, #00c2ff);
+  filter: saturate(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.logo:hover::before {
+  transform: rotate(20deg) scale(1.1);
+}
+/* Logo as ghost button */
+.logo-text {
+  display: inline-flex;                 /* behave like button */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 14px;                    /* subtle padding */
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  
+  /* transparent background + gradient text */
+  background: transparent;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #6c63ff, #00c2ff);
+  -webkit-text-fill-color: transparent;
+
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect */
+.logo-text:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 6px rgba(108, 99, 255, 0.4);
+}
+
+/* Optional active click effect */
+.logo-text:active {
+  transform: scale(0.97);
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ffffff; /* white links */
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.18s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color); /* gradient color on hover */
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* CTA button */
+.nav-links a.cta {
+  background: linear-gradient(90deg, #6c63ff, #00c2ff);
+  color: white;
+  padding: 9px 14px;
+  box-shadow: 0 6px 18px rgba(108,99,255,0.14);
+}
+
+/* Mobile menu */
+.menu-toggle {
+  display: none;
+  color: #ffffff; /* white toggle icon */
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    right: 14px;
+    background: var(--glass-2);
+    padding: 12px;
+    border-radius: 12px;
+    flex-direction: column;
+    min-width: 160px;
+    box-shadow: var(--card-shadow);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  /* Logo as a button */
+/* Logo as ghost button */
+.logo-text {
+  display: inline-flex;                 /* behave like button */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 14px;                    /* subtle padding */
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  
+  /* transparent background + gradient text */
+  background: transparent;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #6c63ff, #00c2ff);
+  -webkit-text-fill-color: transparent;
+
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect */
+.logo-text:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 6px rgba(108, 99, 255, 0.4);
+}
+
+/* Optional active click effect */
+.logo-text:active {
+  transform: scale(0.97);
+}
+
+}

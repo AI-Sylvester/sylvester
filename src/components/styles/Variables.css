@@ -1,0 +1,14 @@
+:root{
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --bg-1: #0f1724; /* deep blue */
+  --bg-2: #0b1020;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+  --accent: linear-gradient(90deg,#6c63ff,#00c2ff);
+  --muted: rgba(255,255,255,0.7);
+  --card-shadow: 0 6px 20px rgba(2,6,23,0.6);
+  --text: #e6eef8;
+  --heading: #ffffff;
+  --accent-color: #6c63ff;
+  --radius: 14px;
+}
