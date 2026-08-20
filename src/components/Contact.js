@@ -42,7 +42,7 @@ const Contact = () => {
       <div className="contact-left">
         <h2>Contact Me</h2>
         <p>Feel free to reach out for collaborations or just a friendly chat!</p>
-        <p>Mobile: +91-9894305194</p> 
+        <p>Mobile: +91-9894305194</p>
         <div className="socials">
           <a href="https://www.linkedin.com/in/infant-sylvester-7446a7a4/" target="_blank" rel="noopener noreferrer">
             LinkedIn
@@ -73,7 +73,7 @@ const Contact = () => {
           </div>
           <div className="input-group textarea-group">
             <textarea name="message" placeholder=" " required></textarea>
-            <label>Your Message</label>
+            <label>Your Contact Number</label>
           </div>
 
           {/* Inline status message */}
