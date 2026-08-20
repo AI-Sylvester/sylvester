@@ -13,6 +13,8 @@ const Education = () => {
     { name: "CSS", level: 90 },
     { name: "JavaScript", level: 85 },
     { name: "SQL", level: 80 },
+    { name: "AI Features", level: 85 },
+    { name: "Content Creation", level: 80 },
   ];
 
   return (
