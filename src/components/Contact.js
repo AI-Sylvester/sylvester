@@ -73,7 +73,7 @@ const Contact = () => {
           </div>
           <div className="input-group textarea-group">
             <textarea name="message" placeholder=" " required></textarea>
-            <label>Your Contact Number</label>
+            <label>Your Message</label>
           </div>
 
           {/* Inline status message */}
