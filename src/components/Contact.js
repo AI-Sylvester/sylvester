@@ -12,7 +12,6 @@ const Contact = () => {
     if (status === "sending") return; // prevent double-submit
 
     setStatus("sending");
-    emailjs.init("_t8_HrXhsM5u5CL-X"); // initialize with public key
 
     emailjs
       .sendForm(
@@ -25,7 +24,6 @@ const Contact = () => {
         () => {
           setStatus("success");
           form.current.reset(); // clear the form fields
-          // auto-reset status after 5 seconds
           setTimeout(() => setStatus("idle"), 5000);
         },
         () => {
