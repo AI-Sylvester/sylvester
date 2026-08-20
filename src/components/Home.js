@@ -16,9 +16,9 @@ const Home = () => {
             I specialize in creating responsive, trendy, and interactive websites
             using React, modern CSS, and best practices.
           </p>
-          <a href="/projects" className="home-btn">
+          <Link to="/projects" className="home-btn">
             See My Work
-          </a>
+          </Link>
         </div>
 
         {/* Right Side - Profile Image */}

@@ -4,7 +4,7 @@ import "./Experience.css";
 
 const Experience = () => {
   const jobs = [
-    { role: "Marketing Executive", company: "Sivasakthi Software Service Private Limited", year: "2016 - Present" },
+    { role: "Marketing Executive and Web Developer", company: "Sivasakthi Software Service Private Limited", year: "2016 - Present" },
     { role: "Marketing Executive", company: "Smart Interiors", year: "2013 - 2016" },
   ];
 
