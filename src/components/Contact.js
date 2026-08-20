@@ -12,6 +12,7 @@ const Contact = () => {
     if (status === "sending") return; // prevent double-submit
 
     setStatus("sending");
+    emailjs.init("_t8_HrXhsM5u5CL-X"); // initialize with public key
 
     emailjs
       .sendForm(
