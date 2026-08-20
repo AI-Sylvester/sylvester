@@ -1,11 +1,15 @@
-import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import CV from "../assets/resume.pdf";
 
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  useEffect(() => {
+    emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -17,8 +21,7 @@ const Contact = () => {
       .sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        form.current
       )
       .then(
         () => {
